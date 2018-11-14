@@ -30,7 +30,7 @@ public class Graph_view {
 		JFrame f = new JFrame();		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		OptionAxe optionsAxes = new OptionAxe(Color.BLACK, true, -1, 1, true, true);
-		Graphique.getInstance().initGraphique(new AxeX(-10, 10, optionsAxes), new AxeY(-10, 10, optionsAxes));
+		Graphique.getInstance().initGraphique(new AxeX(-4, 8, optionsAxes), new AxeY(-7, 10, optionsAxes));
 		Graphique.getInstance().ajouterElement(new Point('A', 2, 2));// crer un point 
 		Graphique.getInstance().ajouterElement(new Fonction((str)));
 		//		Graphique.getInstance().ajouterElement(new Segment(new Point(1, 2), new Point(3, 3)));

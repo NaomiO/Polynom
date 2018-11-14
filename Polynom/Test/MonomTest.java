@@ -209,8 +209,6 @@ class MonomTest {
 	 String Monom= "3*x^2";
 	 assertEquals("3*x^2", Monom);
 	}
-	
-
 
 }
 

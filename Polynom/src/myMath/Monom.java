@@ -10,7 +10,7 @@ package myMath;
 
 /**
  * 
- * @author Shalhevet and Neomi
+ * @author Shalhevet and Naomi
  *
  */
 public class Monom implements function{
@@ -25,6 +25,7 @@ public class Monom implements function{
 	 */
 	public Monom(double a, int b){
 		this.set_coefficient(a);
+
 		this.set_power(b);
 		if (b<0){
 			throw new RuntimeException("Error: Invalid negative value");
@@ -60,14 +61,18 @@ public class Monom implements function{
 			throw new RuntimeException("Error:Invalid Monom");	
 		}
 		else {
-			String s2 = "";// string before the x
+			String s2 = "";// string befor the x
 			String s3 = "";//string after the x
+
 			boolean isgood = false;
+
 			//coefficient
 			double a1;
 			double a2;
+
 			//power
 			int b;
+
 			if (str.contains("x") == true) {
 				s2 = str.substring(0, str.indexOf('x'));
 				if(s2.length() == 0) {
@@ -209,8 +214,13 @@ public class Monom implements function{
 			Monom m= new Monom(0,0);
 			return m;
 		}
+		
+		if (this.get_coefficient()==0) {
+			Monom m= new Monom(0,0);
+			return m;
+		}
+			
 		Monom m = new Monom(this);
-
 		m.set_coefficient(this.get_coefficient()*this.get_power());
 		m.set_power(this.get_power()-1);
 
@@ -223,27 +233,38 @@ public class Monom implements function{
 	 * @param m
 	 */
 	public void add(Monom m) {
-
-		if(this.get_power() != m.get_power()) {
-			throw new RuntimeException("Error: different power ");
+		
+		if (m.get_coefficient()==0) {
+			this.set_coefficient(this.get_coefficient());
+			this.set_power(this.get_power()); 
 		}
 
-		else { //(this.get_power() == m.get_power()) 
+		else if (this.get_power() != m.get_power()) {
+			throw new RuntimeException("Error: different power ");
+		}
+		
+		else //(this.get_power() == m.get_power()) {
 			this.set_coefficient(this.get_coefficient() + m.get_coefficient());
 			this.set_power(this.get_power()); 
 		}
-	}
+		
+	
+	
 
 	/**
 	 * Multiply this Monom by Monom m
 	 * @param m
 	 */
 	public void multiply(Monom m) {
+		if (m.get_coefficient()==0 || this.get_coefficient()==0) {
+			this.set_coefficient(0);
+			this.set_power(0);
+		}
+		else {
 
 		this.set_coefficient(this.get_coefficient() * m.get_coefficient());
 		this.set_power( this.get_power() + m.get_power() );
-	}
-
+	}}
 	/**
 	 * The function checks whether the Monom is equal to zero
 	 * @return

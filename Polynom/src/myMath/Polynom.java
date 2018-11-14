@@ -132,7 +132,7 @@ public class Polynom implements Polynom_able{
 
 
 	/**
-	 * Add polynom able to this Polynom
+	 * Add polynom_able to this Polynom
 	 */
 	@Override
 	public void add(Polynom_able p1) {
@@ -151,6 +151,10 @@ public class Polynom implements Polynom_able{
 	@Override
 
 	public void add(Monom m1) {
+		
+		if (m1.get_coefficient()==0) {
+			return;
+		}
 
 		boolean add = false;
 
@@ -399,5 +403,20 @@ public class Polynom implements Polynom_able{
 			return 0+"";
 		}
 
-	}}
+	}
 
+
+//	public void extremePoints() {
+//		
+//		Polynom func = new Polynom ("0.2*x^4-1.5*x^3+3*x^2-x-5");
+//		Polynom_able der = new Polynom ();
+//		der = func.derivative();3sxf
+//		
+//		
+//	}
+	
+	
+}
+	
+	
+	
