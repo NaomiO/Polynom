@@ -28,7 +28,7 @@ public class Graph_view {
 
 //		graph_print("0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)");
 		String func = new String ("0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)");
-		Polynom p = new Polynom ("- 5 - 1*x^1 + 3x*^2 - 1.5*x^3 + 0.2*x^4");
+		Polynom p = new Polynom ("-5-1*x+3*x^2-1.5*x^3+0.2*x^4");
 		extremePoints(p,func,-2.0,6.0);
 
 	}
@@ -42,7 +42,7 @@ public class Graph_view {
 		double eps = 0.0001;
 		while(start <= end) {
 			if (der.f(start) * der.f(start + eps) <= 0) 
-				pList.add(new Point(start, der.f(start)));
+				pList.add(new Point(start, p1.f(start)));
 			start += eps;
 			}
 		graph_print(func,pList,x1,x2);
