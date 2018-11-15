@@ -205,6 +205,7 @@ class MonomTest {
 		String Monom= "3*x^2";
 		assertEquals("3*x^2", Monom);
 	}
+	
 	/* stringConstructor*/
 
 	@Test
@@ -212,6 +213,7 @@ class MonomTest {
 		Monom m = new Monom ("2x^8");
 		assertEquals("2.0x^8", m.toString());
 	}
+	
 	@Test
 	void teststringConstructor2() {
 		try {
@@ -224,7 +226,5 @@ class MonomTest {
 				System.out.println(e.getMessage());
 			}}
 	
-	
-
 }
 
