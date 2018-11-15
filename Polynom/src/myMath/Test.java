@@ -103,11 +103,11 @@ public class Test {
 //
 //		/*equals*/
 //		Polynom_able p5= new Polynom("0");
-//		Polynom p6= new Polynom("4*x^8+1");
+//		Polynom p6= new Polynom("0");
 //		System.out.println("p6:"+p6);
 //		System.out.println("p5:"+p5);
 //		System.out.println("equals:"+ p6.equals(p5));
-//
+////
 //		/*isZero*/
 //		Polynom zero =new Polynom();
 //		System.out.println("isZero:"+zero.isZero()); 
@@ -137,13 +137,13 @@ public class Test {
 //		p11.add(m1);
 //		String p= p11.toString();
 //		System.out.println(p11);
-		Polynom p8= new Polynom ("2.0x^3 + 5.0x^10");
-		Polynom_able p9= new Polynom();
-		Polynom expected= new Polynom("2x^3 + 5x^10");
-		p8.add(p9);
-		
-		String p= p8.toString();
-		System.out.println(p8);
-		System.out.println(expected);
+//		Polynom p8= new Polynom ("2.0x^3 + 5.0x^10");
+//		Polynom_able p9= new Polynom();
+//		Polynom expected= new Polynom("2x^3 + 5x^10");
+//		p8.add(p9);
+//		
+//		String p= p8.toString();
+//		System.out.println(p8);
+//		System.out.println(expected);
 
 	}}

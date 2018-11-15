@@ -12,15 +12,15 @@ import myMath.Polynom_able;
 
 class PolynomTest {
 
-	/*DefaultConstructor*/
-
-	@Test
-	void DefaultConstructorTest() {
-		Polynom p1= new Polynom ();
-		Polynom p2= new Polynom ("0.0");
-		boolean check= p1.equals(p2);
-		assertEquals(true,check);
-	}
+//	/*DefaultConstructor*/
+//
+//	@Test
+//	void DefaultConstructorTest() {
+//		Polynom p1= new Polynom ();
+//		Polynom p2= new Polynom ("0.0");
+//		boolean check= p1.equals(p2);
+//		assertEquals(true,check);
+//	}
 
 	/* CopyConstructor*/
 
@@ -207,15 +207,72 @@ class PolynomTest {
 	@Test
 	void multiplyPolynomable2() {
 		Polynom p= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
-		System.out.println("p:"+p);
 		Polynom_able p1= new Polynom("2.0x^3 + 5.0x^10");
-		System.out.println("p1:"+p1);
 		Polynom mult = new Polynom ("4.0x^6 + 20.0x^13 + 25.0x^20 + 8.0x^53 + 20.0x^60");
-		System.out.println("mult:"+mult);
 		p.multiply(p1);
-		System.out.println("pafte:"+p);
 		boolean check= p.equals(mult);
 		assertEquals(true, check);
+	}
+	
+	@Test
+	void multiplyPolynomable3() {
+		Polynom p= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
+		Polynom_able p1= new Polynom("2");
+		Polynom mult = new Polynom ("4.0x^3 + 10.0x^10 + 8.0x^50");
+		p.multiply(p1);
+		boolean check= p.equals(mult);
+		assertEquals(true, check);
+	}
+	
+	/*equalsPolynom*/
+	
+	@Test
+	void equalsPolynom1() {
+		Polynom_able p= new Polynom("0");
+		Polynom p1= new Polynom("4x^8+1");
+		boolean equal = p1.equals(p);
+		assertFalse(equal); 
+	}
+	
+	@Test
+	void equalsPolynom2() {
+		Polynom_able p= new Polynom("4x^8+5");
+		Polynom p1= new Polynom("4x^8+1");
+		boolean equal = p1.equals(p);
+		assertFalse(equal); 
+	}
+	
+	@Test
+	void equalsPolynom3() {
+		Polynom_able p= new Polynom("4x^8+1+5x^5");
+		Polynom p1= new Polynom("4x^8+1");
+		boolean equal = p1.equals(p);
+		assertFalse(equal); 
+	}
+	
+	/*isZero*/
+	@Test
+	void isZero1() {
+	Polynom p1= new Polynom("4x^8+1");
+	Polynom p2= new Polynom("0");
+	boolean isZero = p1.equals(p2);	
+	assertEquals(false, isZero);
+	}
+	
+	@Test
+	void isZero2() {
+	Polynom p1= new Polynom("0");
+	Polynom p2= new Polynom("0");
+	boolean isZero = p1.equals(p2);	
+	assertEquals(true, isZero);
+	}
+	
+	@Test
+	void isZero3() {
+	Polynom p1= new Polynom("0+5x");
+	Polynom p2= new Polynom("0");
+	boolean isZero = p1.equals(p2);	
+	assertEquals(false, isZero);
 	}
 	
 	

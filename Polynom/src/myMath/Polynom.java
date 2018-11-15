@@ -1,3 +1,4 @@
+//Testtttttttttttttttttttttttt
 package myMath;
 
 import java.util.ArrayList;
@@ -237,10 +238,7 @@ public class Polynom implements Polynom_able{
 				iter.remove();
 			}
 		}
-		
-
-		
-		
+	
 	}
 
 	/**
@@ -250,26 +248,53 @@ public class Polynom implements Polynom_able{
 
 	@Override
 
-	public boolean equals(Polynom_able p1) {
-		Iterator<Monom> itrp1 = p1.iteretor();
-		Iterator<Monom> itr = polynom.iterator();
-		boolean equal = true;
-
-		while (equal==true && itrp1.hasNext() && itr.hasNext()) {
-			
-			Monom n1 = itrp1.next();
-			Monom n2 = itr.next();
-
-			if (n1.get_coefficient()!= n2.get_coefficient()|| n1.get_power()!=n2.get_power()) {
-				return false;
-		}
-			else {
-				equal= true;
-			}
-		}
-		return equal;
-	}
+//	public boolean equals(Polynom_able p1) {
+//		Iterator<Monom> itrp1 = p1.iteretor();
+//		Iterator<Monom> itr = polynom.iterator();
+//		boolean equal = true;
+//
+//		while (equal==true && itrp1.hasNext() && itr.hasNext()) {
+//			
+//			Monom n1 = itrp1.next();
+//			Monom n2 = itr.next();
+//
+//			if (n1.get_coefficient()== n2.get_coefficient()|| n1.get_power() == n2.get_power()) {
+//				equal= true;
+//		}
+//			else {
+//				equal= false;
+//				return equal;
+//			}
+//		}
+//		return equal;
+//	}
 	
+	public boolean equals(Polynom_able p1) {
+		
+		Iterator<Monom> itr = polynom.iterator();	
+		Iterator<Monom> itrp1 = p1.iteretor();
+		
+		boolean check = true;
+		
+		if ((itr.hasNext() == true &&  itrp1.hasNext() == false) || (itr.hasNext() == false &&  itrp1.hasNext() == true) ) {
+			return false;
+		}
+		while(itr.hasNext() &&  itrp1.hasNext() && check==true ) {
+
+			Monom m1 = itr.next();
+			Monom m2 = itrp1.next();
+		
+			if ((m1.get_coefficient() == m2.get_coefficient()) && (m1.get_power() == m2.get_power())) {
+				check = true;
+			}
+			else {
+				return false;
+			}
+	
+		}
+		return check;
+
+	}	
 	/**
 	 * check if the polynom equals zero
 	 * return true or false
