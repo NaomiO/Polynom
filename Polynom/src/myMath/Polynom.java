@@ -386,6 +386,7 @@ public class Polynom implements Polynom_able{
 		return result;
 	}
 	public double areanew(double x0, double x1, double eps) {
+		
 		 if (x0>x1) {
 			 
 			 throw new RuntimeException("worng input");
@@ -397,6 +398,7 @@ public class Polynom implements Polynom_able{
 
 			if (f(x0)<0) {
 				result = result - (f(x0)*eps);
+				x0=x0+eps;
 			}
 			else {
 				result = result + (f(x0)*eps);
