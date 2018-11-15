@@ -2,11 +2,8 @@ package myMath;
 import java.awt.Color;  
 import java.util.ArrayList;
 import java.util.List;
-import myMath.Monom;
 import myMath.Polynom;
 import myMath.Polynom_able;
-import myMath.cont_function;
-import myMath.function;
 
 import javax.swing.JFrame;
 
@@ -20,6 +17,11 @@ import fr.julien.graphique.element.forme.Polygone;
 import fr.julien.graphique.element.point.Point;
 import fr.julien.graphique.element.quadrillage.Quadrillage;
 
+/**This class represents a tool for graphical drawings of functions 
+ * 
+ * @author Naomi & Shalhevet
+ *
+ */
 public class Graph_view {
 
 	private static ArrayList<Point> pList;

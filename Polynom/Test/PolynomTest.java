@@ -1,10 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.swing.plaf.synth.SynthPasswordFieldUI;
-import javax.swing.plaf.synth.SynthSeparatorUI;
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;

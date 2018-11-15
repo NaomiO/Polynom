@@ -435,7 +435,7 @@ public class Polynom implements Polynom_able{
 		return result;
 	}
 	/**
-	 * This functions gets 
+	 * This functions gets a range and a ffunction and finds the extreme points of the function
 	 * @param p
 	 * @param func
 	 * @param x1
@@ -460,7 +460,14 @@ public static void extremePoints(Polynom p, String func, double x1, double x2) {
 	
 
 
-
+/**
+ * This method is a tool that gets a function and draw a graph of the function on y and x axes
+ * It also gets the extreme points of the function and draw them on the graph.
+ * @param str
+ * @param pList
+ * @param x1
+ * @param x2
+ */
 	public static void graph_print(String str, ArrayList<Point>pList, double x1, double x2) {
 		JFrame f = new JFrame();		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
