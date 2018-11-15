@@ -395,11 +395,11 @@ public class Polynom implements Polynom_able{
 		return result;
 	}
 	/**
-	 * This function calculates the area between a function and the x axe
+	 * This function gets a range and calculates the area between a function and the x axe in this range 
 	 * @param x0
 	 * @param x1
 	 * @param eps
-	 * @return 
+	 * @return the area
 	 */
 	public double areanew(double x0, double x1, double eps) {
 		
@@ -423,6 +423,13 @@ public class Polynom implements Polynom_able{
 
 		return result;
 	}
+	/**
+	 * This functions gets 
+	 * @param p
+	 * @param func
+	 * @param x1
+	 * @param x2
+	 */
 public static void extremePoints(Polynom p, String func, double x1, double x2) {
 		
 		pList = new ArrayList<Point>();
