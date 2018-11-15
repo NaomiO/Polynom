@@ -2,6 +2,11 @@ package myMath;
 import java.awt.Color;  
 import java.util.ArrayList;
 import java.util.List;
+import myMath.Monom;
+import myMath.Polynom;
+import myMath.Polynom_able;
+import myMath.cont_function;
+import myMath.function;
 
 import javax.swing.JFrame;
 
@@ -14,30 +19,50 @@ import fr.julien.graphique.element.fonction.Fonction;
 import fr.julien.graphique.element.forme.Polygone;
 import fr.julien.graphique.element.point.Point;
 import fr.julien.graphique.element.quadrillage.Quadrillage;
-import fr.julien.graphique.element.segment.Segment;
 
 public class Graph_view {
 
+	private static ArrayList<Point> pList;
+
 	public static void main(String[] args) {
 
-		graph_print("0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)");
+//		graph_print("0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)");
+		String func = new String ("0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)");
+		Polynom p = new Polynom ("- 5 - 1*x^1 + 3x*^2 - 1.5*x^3 + 0.2*x^4");
+		extremePoints(p,func,-2.0,6.0);
 
 	}
+	public static void extremePoints(Polynom p, String func, double x1, double x2) {
+		
+		pList = new ArrayList<Point>();
+		Polynom p1 = new Polynom (p);
+		Polynom_able der =  p1.derivative();
+		double start = x1;
+		double end = x2;
+		double eps = 0.0001;
+		while(start <= end) {
+			if (der.f(start) * der.f(start + eps) <= 0) 
+				pList.add(new Point(start, der.f(start)));
+			start += eps;
+			}
+		graph_print(func,pList,x1,x2);
+		}
 
 
 
-	public static void graph_print(String str) {
+	public static void graph_print(String str, ArrayList<Point>pList, double x1, double x2) {
 		JFrame f = new JFrame();		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		OptionAxe optionsAxes = new OptionAxe(Color.BLACK, true, -1, 1, true, true);
 		Graphique.getInstance().initGraphique(new AxeX(-4, 8, optionsAxes), new AxeY(-7, 10, optionsAxes));
-		Graphique.getInstance().ajouterElement(new Point('A', 2, 2));// crer un point 
+//		Graphique.getInstance().ajouterElement(new Point('A', 2, 2));// crer un point 
 		Graphique.getInstance().ajouterElement(new Fonction((str)));
-		//		Graphique.getInstance().ajouterElement(new Segment(new Point(1, 2), new Point(3, 3)));
+		char a = 'A';
+		for (int i = 0 ; i < pList.size(); i++, a++) {
+			Graphique.getInstance().ajouterElement(new Point(a, pList.get(i).getAbscisse(),pList.get(i).getOrdonnee()));
+		}
 		List<Point> points = new ArrayList<Point>();
-		//		points.add(new Point(1, 1)); 0.2*X^4+(0-1.5)*X^3+3*X^2+(0-X)+(0-5)
-		//		points.add(new Point(2, 2));
-		//		points.add(new Point(2, 1));
+		
 		Graphique.getInstance().ajouterElement(new Polygone(points));
 		Graphique.getInstance().ajouterElement(new Quadrillage(0.5, 0.5));
 		f.add(new ZoneGraphique());
@@ -47,5 +72,5 @@ public class Graph_view {
 	}
 
 
-}
+}  
 
