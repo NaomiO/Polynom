@@ -141,6 +141,7 @@ public class Polynom implements Polynom_able{
 
 		while (itrp1.hasNext()) {
 			Monom m1 = itrp1.next();
+			
 			add(m1);	
 		}
 	}
@@ -169,12 +170,12 @@ public class Polynom implements Polynom_able{
 				m2.add(m1);
 
 				add = true;
+				if(m2.get_coefficient()==0) { 
 
+					iter.remove();
+				}
 			}
-			if(m2.get_coefficient()==0) { 
 
-				iter.remove();
-			}
 		}
 
 		if (add == false) {
