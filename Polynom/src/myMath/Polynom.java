@@ -1,11 +1,21 @@
 package myMath;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.function.Predicate;
+import java.util.List;
 
-import javax.management.RuntimeErrorException;
+import javax.swing.JFrame;
 
+import fr.julien.graphique.Graphique;
+import fr.julien.graphique.ZoneGraphique;
+import fr.julien.graphique.axes.AxeX;
+import fr.julien.graphique.axes.AxeY;
+import fr.julien.graphique.axes.OptionAxe;
+import fr.julien.graphique.element.fonction.Fonction;
+import fr.julien.graphique.element.forme.Polygone;
+import fr.julien.graphique.element.point.Point;
+import fr.julien.graphique.element.quadrillage.Quadrillage;
 import myMath.Monom;
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
@@ -27,6 +37,8 @@ public class Polynom implements Polynom_able{
 
 	private final Monom_Comperator compare= new Monom_Comperator();
 	private ArrayList<Monom> polynom;
+	private static ArrayList<Point> pList;
+
 
 	/**
 	 *  Default constructor
@@ -382,6 +394,13 @@ public class Polynom implements Polynom_able{
 
 		return result;
 	}
+	/**
+	 * This function calculates the area between a function and the x axe
+	 * @param x0
+	 * @param x1
+	 * @param eps
+	 * @return 
+	 */
 	public double areanew(double x0, double x1, double eps) {
 		
 		 if (x0>x1) {
@@ -404,7 +423,48 @@ public class Polynom implements Polynom_able{
 
 		return result;
 	}
+public static void extremePoints(Polynom p, String func, double x1, double x2) {
+		
+		pList = new ArrayList<Point>();
+		Polynom p1 = new Polynom (p);
+		Polynom_able der =  p1.derivative();
+		double start = x1;
+		double end = x2;
+		double eps = 0.0001;
+		while(start <= end) {
+			if (der.f(start) * der.f(start + eps) <= 0) 
+				pList.add(new Point(start, p1.f(start)));
+			start += eps;
+			}
+		graph_print(func,pList,x1,x2);
+		}
 	
+	
+
+
+
+	public static void graph_print(String str, ArrayList<Point>pList, double x1, double x2) {
+		JFrame f = new JFrame();		
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		OptionAxe optionsAxes = new OptionAxe(Color.BLACK, true, -1, 1, true, true);
+		Graphique.getInstance().initGraphique(new AxeX(-4, 8, optionsAxes), new AxeY(-7, 10, optionsAxes));
+//		Graphique.getInstance().ajouterElement(new Point('A', 2, 2));// crer un point 
+		Graphique.getInstance().ajouterElement(new Fonction((str)));
+		char a = 'a';
+		
+		for (int i = 0 ; i < pList.size(); i++, a++) {
+			
+			Graphique.getInstance().ajouterElement(new Point(a, pList.get(i).getAbscisse(),pList.get(i).getOrdonnee()));
+		}
+		List<Point> points = new ArrayList<Point>();
+		
+		Graphique.getInstance().ajouterElement(new Polygone(points));
+		Graphique.getInstance().ajouterElement(new Quadrillage(0.5, 0.5));
+		f.add(new ZoneGraphique());
+		f.pack();
+		f.setLocationRelativeTo(null);
+		f.setVisible(true);
+	}
 
 
 	@Override
