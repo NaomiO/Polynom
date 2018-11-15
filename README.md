@@ -1,21 +1,15 @@
+
 Project summary
-
-
-In this project we create an interface representing a function of type y=f(x) that is a combination of monoms, creating one polynom on which we perform mathematical operations using different methods for each sort.    The project is divided in multiple interfaces and classes.
-
+In this project we create an interface representing a function of type y=f(x) that is a combination of monoms, creating one polynom on which we perform mathematical operations using different methods for each sort. The project is divided in multiple interfaces and classes.
 Function interface
-
-This is the superinterface of this project.                                                                                                    Subinterfaces: cont_function, Polynom_able 							              Implementing Classes: Monom, Polynom
+This is the superinterface of this project. Subinterfaces: cont_function, Polynom_able Implementing Classes: Monom, Polynom
 Purpose : Represents a simple function of type y=f(x), where both y and x are real numbers.
 Method type : double 
 Method name : f(double x) 
 Method parameters : x - variable
 Method returns : function of type y=f(x)
-
-
 Cont_function interface
-
-It is one of Function subinterfaces and so the method f(double x) is inherited from it. 	            Subinterfaces: Polynom_able 									            Implementing Class: Polynom
+It is one of Function subinterfaces and so the method f(double x) is inherited from it. Subinterfaces: Polynom_able Implementing Classes: Polynom
 Purpose: Represents a continuance function.
 Method type : double 
 Method name : area(double x0, double x1, double eps)
@@ -24,23 +18,13 @@ Method parameters : x0 - starting pooint
                    x1 - end point
                    eps - positive step value
 Method returns : the approximated area above X-axis below this function bounded in the range of [x0,x1]
-
-
 Class Monom
-
-This class creates a "monom" of shape ax^b on which we perform mathematical operations such as adding a monom to another one, multiplying two monoms, calculating the value of a monom after x is given a numerical value, or derivating a monom.										                This class also implements the interface Function and has two private fields; coefficient, that is of type double and power, that is of type integer.
+This class creates a "monom" of shape ax^b on which we perform mathematical operations such as adding a monom to another one, multiplying two monoms, calculating the value of a monom after x is given a numerical value, or derivating a monom. This class also implements the interface Function and has two private fields; coefficient, that is of type double and power, that is of type integer.
 Constructors
-
 Monom(): this is the default constructor
-Monom(double a, int b): this constructor is given two parameters, one of type double that is set as the       coefficient of this monom and one of type integer that is set as the power of x.
+Monom(double a, int b): this constructor is given two parameters, one of type double that is set as the coefficient of this monom and one of type integer that is set as the power of x.
 Monom(Monom ot): this is the copy constructor.
-Monom(java.lang.String str): this is the string constructor that helps us print a monom of proper shape   a*x^b.
-
-
-
-
-
-
+Monom(java.lang.String str): this is the string constructor that helps us print a monom of proper shape a*x^b.
 Methods
 •	Add
 Method type : void
@@ -73,46 +57,22 @@ Method parameter : b of type integer
 Method type : void
 Method details : sets the numerical value a as coefficient before variable x. 
 Method parameter : a of type double
-
-
-
-
-
-
-
-
-
-
-
-
-
 Class Monom_Comperator
-
 This class implements java.util.Comparator and use a method to compare two monoms; to verify if they are equals or not.
 Method type : int 
 Method name : compare
 Method details : compare betwen two monoms
 Method parameters : Monom m1, Monom m2
 Method returns : if they are equals it returns 0, if the power of m1 is bigger than the power of m2 it returns -1 and if not it returns 1.
-
-
 Polynom_able interface
-
 This interface represents a general polynom: f(x) = a_1X^b_1 + a_2X^b_2 ... a_nXb_n, where: a_1, a_2 ... a_n are real numbers and b_1=0 are none negative integers (naturals). Such polygon has the following functionality: polynoms constructors, mathematical operations functions and a String type constructor that are defined in implemented class Polynom.
-
 Class Polynom
-
-This class represents a general polynom: f(x) = a_1X^b_1 + a_2X^b_2 ... a_nXb_n, where: a_1, a_2 ... a_n are real numbers and b_1=0 are none negative integers (naturals). 						               Such polynon has the following functionality: polynoms constructors, mathematical operations functions and a String type constructor. All implemented interfaces: cont_function, function, Polynom_able. 			     This class uses two private fields;one that uses the commpare method Monom_Comperator and one that the array list method ArrayList for polynom.
+This class represents a general polynom: f(x) = a_1X^b_1 + a_2X^b_2 ... a_nXb_n, where: a_1, a_2 ... a_n are real numbers and b_1=0 are none negative integers (naturals). Such polynon has the following functionality: polynoms constructors, mathematical operations functions and a String type constructor. All implemented interfaces: cont_function, function, Polynom_able. This class uses two private fields;one that uses the commpare method Monom_Comperator and one that the array list method ArrayList for polynom.
 Constructors
 Polynom(): this is the default constructor that creates an array list filled with monoms.
 Polynom(Polynom p): this is the copy constructor
-Polynom(java.lang.String s): this is the string constructor that helps us print a polynom using char characters and symbols according to each function.
-
-
-
-
+Polynom(java.lang.String s): this is the string constructor that helps us print a polynom using char characters and symbols according to                              each function.
 Methods
-
 •	Add(Monom)
 Method type : void
 Method details : adds Monom m to this polynom.
@@ -120,9 +80,7 @@ Method parameters : Monom m
 •	Add(Polynom_able)
 Method type : void
 Method details : adds polynom_able to this polynom.
-Method parameters : Polynom_able p1                 
-
-                 
+Method parameters : Polynom_able p1                                  
 •	Substract
 Method type : void
 Method details : substract between this polynom to Polynom_able p1
@@ -163,13 +121,7 @@ Method type : Iterator<Monom>
 Method details : this method allows us to search an array list using three functions:
                  hasNext() : returns true if the iteration has more elements.
                  next() : returns the next element in the iteration.
-                 void remove() : removes from the underlying collection the last element returned by this  iterator.
-
-
-
-
-
-
+                 void remove() : removes from the underlying collection the last element returned by this iterator.
 •	Root
 Method type : double
 Method details : The Bisection Method is a successive approximation method that narrows down an interval that contains a root of the                      function f(x).
@@ -180,12 +132,7 @@ Method returns : the bisected root.
 •	getPolynom
 Method type : java.util.ArrayList<Monom>
 Method details : this method gets a polynom and returns this polynom using array List.
-
-
-
 Test class
 In this class we apply every methods of each class, changing the polynoms or monoms and printing them using a main method.
-
 Authors
 Shalhevet Gamliel & Naomi Oyer
-. 
