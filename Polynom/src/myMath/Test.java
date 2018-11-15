@@ -1,5 +1,7 @@
 package myMath;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import javax.sound.midi.Synthesizer;
 
 public class Test {
@@ -113,12 +115,18 @@ public class Test {
 //		System.out.println("isZero:"+zero.isZero()); 
 //
 		/*root*/
-		System.out.println("shal");
-		Polynom_able p7 = new Polynom("-8x^3+8");
-		System.out.println("root:"+p7.root(-11, 5, 0.000001));
+//		System.out.println("shal");
+//		Polynom_able p7 = new Polynom("-8x^3+8");
+//		System.out.println("root:"+p7.root(-11, 5, 0.000001));
 		
 		
-		
+		 Polynom p2 = new Polynom("-2x^3+7x^5");
+		Polynom p3 = new Polynom("5.2x^1-2.7x^4-4x^3+7");
+			double r= p3.root(-2,0,0.0001);
+			System.out.println(r);
+//			assertEquals(0, Math.round(p2.root(-0.4, 0.4, 0.0001)));
+//			assertEquals(1, Math.round(p3.root(0, 2, 0.0001)));
+//			assertEquals(-1, Math.round(p3.root(-2, 0, 0.0001)));
 		
 //		
 //		/*area*/

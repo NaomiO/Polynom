@@ -275,6 +275,30 @@ class PolynomTest {
 	assertEquals(false, isZero);
 	}
 	
+	@Test
+	void testroot1() {
+	Polynom p2 = new Polynom("-2x^3 + 7x^5");
+	double result1= p2.root(-0.4, 0.4, 0.0001);
+	assertEquals(0, result1);
+	}
+	
+	@Test
+	void testroot2() {
+	Polynom p3 = new Polynom("5.2x^1 -2.7x^4 -4x^3 + 7");
+	double result2= p3.root(0, 2, 0.0001);
+	assertEquals(1.2230606079101562, result2);
+	
+	}
+	
+	@Test
+	void testroot3() {
+	Polynom p3 = new Polynom("5.2x^1 -2.7x^4 -4x^3 + 7");
+	double result3= p3.root(-2, 0, 0.0001);
+	assertEquals(-1.427581787109375, result3);
+	
+	}
+
+	
 	
 
 	

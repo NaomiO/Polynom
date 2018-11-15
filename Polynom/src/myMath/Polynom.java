@@ -288,23 +288,29 @@ public class Polynom implements Polynom_able{
 	@Override
 	public double root(double x0, double x1, double eps) {
 
-		if(f(x0)*f(x1) >0) 
-			throw new RuntimeException("worng input");
-		else 
-		{
+		if(f(x0)*f(x1) <= 0) { 
+	
 			double x2=(x1+x0)/2;
 			if(0-eps<=f(x2) && 0+eps>f(x2)) {
 				return x2;
 			}
 			else {
-				if((f(x2)<0 && f(0)<0)||(f(x2)>0 && f(x0)>0)){
+				if((f(x2)<0 && f(x0)<0)||(f(x2)>0 && f(x0)>0)){
 					x0=x2;
 					return root(x0,x1,eps);
 				}
 				else {
+					
 					return root(x0,x2,eps);
-				}}}}
-	
+					
+				}}
+				
+			}
+	else { //if(f(x0)*f(x1)>0) 
+		 
+			throw new RuntimeException("worng input");
+		}
+	}
 
 	@Override
 	/**
