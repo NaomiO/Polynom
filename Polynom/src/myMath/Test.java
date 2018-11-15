@@ -112,9 +112,14 @@ public class Test {
 //		Polynom zero =new Polynom();
 //		System.out.println("isZero:"+zero.isZero()); 
 //
-//		/*root*/
-//		Polynom_able p7 = new Polynom("-8x^3+8");
-//		System.out.println("root:"+p7.root(-11, 5, 0.000001));
+		/*root*/
+		System.out.println("shal");
+		Polynom_able p7 = new Polynom("-8x^3+8");
+		System.out.println("root:"+p7.root(-11, 5, 0.000001));
+		
+		
+		
+		
 //		
 //		/*area*/
 //		Polynom p11=new Polynom("-8*x^3+9");

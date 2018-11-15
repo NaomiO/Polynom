@@ -1,4 +1,3 @@
-//Testtttttttttttttttttttttttt
 package myMath;
 
 import java.util.ArrayList;
@@ -236,38 +235,14 @@ public class Polynom implements Polynom_able{
 			Monom n1 = new Monom(iter.next());
 			if (n1.get_coefficient()==0) {
 				iter.remove();
-			}
-		}
-	
-	}
-
+			}}}
+		
 	/**
 	 * check if the this polynom is equals to Polynom_able p1
 	 * return true or false
 	 */
 
 	@Override
-
-//	public boolean equals(Polynom_able p1) {
-//		Iterator<Monom> itrp1 = p1.iteretor();
-//		Iterator<Monom> itr = polynom.iterator();
-//		boolean equal = true;
-//
-//		while (equal==true && itrp1.hasNext() && itr.hasNext()) {
-//			
-//			Monom n1 = itrp1.next();
-//			Monom n2 = itr.next();
-//
-//			if (n1.get_coefficient()== n2.get_coefficient()|| n1.get_power() == n2.get_power()) {
-//				equal= true;
-//		}
-//			else {
-//				equal= false;
-//				return equal;
-//			}
-//		}
-//		return equal;
-//	}
 	
 	public boolean equals(Polynom_able p1) {
 		
@@ -295,6 +270,7 @@ public class Polynom implements Polynom_able{
 		return check;
 
 	}	
+	
 	/**
 	 * check if the polynom equals zero
 	 * return true or false
@@ -312,7 +288,7 @@ public class Polynom implements Polynom_able{
 	@Override
 	public double root(double x0, double x1, double eps) {
 
-		if(f(x0)*f(x1) > 0) 
+		if(f(x0)*f(x1) >0) 
 			throw new RuntimeException("worng input");
 		else 
 		{
@@ -328,6 +304,7 @@ public class Polynom implements Polynom_able{
 				else {
 					return root(x0,x2,eps);
 				}}}}
+	
 
 	@Override
 	/**
