@@ -358,9 +358,6 @@ public class Polynom implements Polynom_able{
 	}
 		
 
-
-
-
 	@Override
 	/**
 	 * Compute Riemann's Integral over this Polynom starting from x0, till x1 using eps size steps
@@ -401,7 +398,6 @@ public class Polynom implements Polynom_able{
 				x0=x0+eps;
 			}
 			else {
-				result = result + (f(x0)*eps);
 				x0=x0+eps;
 			}
 		}
