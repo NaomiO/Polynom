@@ -2,6 +2,8 @@ package myMath;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Iterator;
+
 import javax.sound.midi.Synthesizer;
 
 public class Test {
@@ -120,16 +122,16 @@ public class Test {
 //		System.out.println("root:"+p7.root(-11, 5, 0.000001));
 		
 		
-		 Polynom p2 = new Polynom("-2x^3+7x^5");
-		Polynom p3 = new Polynom("5.2x^1-2.7x^4-4x^3+7");
-			double r= p3.root(-2,0,0.0001);
-			System.out.println(r);
+//		 Polynom p2 = new Polynom("-2x^3+7x^5");
+//		Polynom p3 = new Polynom("5.2x^1-2.7x^4-4x^3+7");
+//			double r= p3.root(-2,0,0.0001);
+//			System.out.println(r);
 //			assertEquals(0, Math.round(p2.root(-0.4, 0.4, 0.0001)));
 //			assertEquals(1, Math.round(p3.root(0, 2, 0.0001)));
 //			assertEquals(-1, Math.round(p3.root(-2, 0, 0.0001)));
 		
-//		
-//		/*area*/
+		
+		/*area*/
 //		Polynom p11=new Polynom("-8*x^3+9");
 //		System.out.println( "area:"+p11.area(-1, 4, 0.0001));
 //
@@ -159,4 +161,33 @@ public class Test {
 //		System.out.println(p8);
 //		System.out.println(expected);
 
+		Polynom p2=new Polynom("0.0");
+		Polynom p1=new Polynom();
+		System.out.println(p1);
+		System.out.println(p2);
+		
+		Iterator<Monom> itr =p2.iteretor();
+		Iterator<Monom> itrp1 = p1.iteretor();
+	
+		System.out.println(itr.hasNext());
+		System.out.println(itrp1.hasNext());
+		 //Monom m1=itr.next();
+		 Monom m2= itrp1.next();
+		 System.out.println(m2);
+		System.out.println(itr.hasNext());
+		System.out.println(itrp1.hasNext());
+		Monom m3= itrp1.next();
+		System.out.println(m3);
+		
+//		if((itr.hasNext() == false)&& ( itrp1.hasNext() == true)) {
+//			return false;
+//		}
+//		
+//			if((itr.hasNext() == false) &&  (itrp1.hasNext() == true)) {
+//			return false;
+//		}
+//
+//		Polynom p2=new Polynom("0.0");
+//		Polynom p1=new Polynom();
+//		System.out.println(p1.equals(p2));
 	}}

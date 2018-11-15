@@ -345,8 +345,19 @@ public class Polynom implements Polynom_able{
 
 			ablep1.add(m2);	
 		}
+		
+		
+
+		Iterator<Monom> iter = ablep1.iteretor();
+		while (iter.hasNext()) {
+			Monom n1 = new Monom(iter.next());
+			if (n1.get_coefficient()==0) {
+				iter.remove();
+			}}
 		return ablep1;
 	}
+		
+
 
 
 
@@ -359,7 +370,7 @@ public class Polynom implements Polynom_able{
 			 throw new RuntimeException("worng input");
 		 }
 
-		double area=0;
+		double result = 0;
 
 		while (x0<=x1) {
 
@@ -367,13 +378,36 @@ public class Polynom implements Polynom_able{
 				x0=x0+eps;
 			}
 			else {
-				area= area + (f(x0)*eps);
+				result = result + (f(x0)*eps);
 				x0=x0+eps;
 			}
 		}
 
-		return area;
+		return result;
 	}
+	public double areanew(double x0, double x1, double eps) {
+		 if (x0>x1) {
+			 
+			 throw new RuntimeException("worng input");
+		 }
+
+		double result = 0;
+
+		while (x0<=x1) {
+
+			if (f(x0)<0) {
+				result = result - (f(x0)*eps);
+			}
+			else {
+				result = result + (f(x0)*eps);
+				x0=x0+eps;
+			}
+		}
+
+		return result;
+	}
+	
+
 
 	@Override
 	/**
@@ -424,16 +458,6 @@ public class Polynom implements Polynom_able{
 
 	}
 
-
-//	public void extremePoints() {
-//		
-//		Polynom func = new Polynom ("0.2*x^4-1.5*x^3+3*x^2-x-5");
-//		Polynom_able der = new Polynom ();
-//		der = func.derivative();3sxf
-//		
-//		
-//	}
-	
 	
 }
 	
