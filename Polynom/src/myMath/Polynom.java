@@ -277,10 +277,22 @@ public class Polynom implements Polynom_able{
 	 */
 	@Override
 	public boolean isZero() {
-		if (this.polynom.size()==0) {
+	
+
+		if (this.polynom.size()==0 ) {
 			return true;
 		}
-		return false;
+		Iterator<Monom> iter = this.iteretor();
+		boolean n = false;
+		while (iter.hasNext()) {
+			Monom n1 = new Monom(iter.next());
+			if (n1.get_coefficient()==0) {
+				n=false;
+			}
+			else {
+				return false;
+			}}
+		return true;
 	}
 	/**
 	 * Compute a value x' (x0<=x'<=x1) for with |f(x')| < eps
@@ -345,7 +357,6 @@ public class Polynom implements Polynom_able{
 
 			ablep1.add(m2);	
 		}
-		
 		
 
 		Iterator<Monom> iter = ablep1.iteretor();

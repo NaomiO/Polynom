@@ -291,7 +291,11 @@ public class Monom implements function{
 	 */
 	public String toString() {
 		if (this._power == 0) {
-			return this._coefficient+""; }
+			return this._coefficient+"";
+			}
+		else if (this._power==1 && this._coefficient!=0) {
+			return +this.get_coefficient()+"x"; }
+
 		if (this._coefficient == 0) {
 			return 0+"";}
 		return +this.get_coefficient()+"x^"+ this.get_power(); }

@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;
+import myMath.Polynom;
 
 class MonomTest {
 
@@ -14,16 +15,8 @@ class MonomTest {
 	Monom m4= new Monom(3,4);
 	Monom m5= new Monom (0,4);
 	Monom m7= new Monom (8,0);	
-	//	Monom m1;
-	//	Monom m6;
-	//	Monom m2;
-	//	Monom m3;
-	//	Monom m4;
-	//	Monom m5;
-	//	Monom m10;
 
-
-
+	/*Constructor*/
 	@Test 
 	void testvalConstructor(){
 		// negative power
@@ -54,19 +47,20 @@ class MonomTest {
 		assertEquals(3, mdef.get_power());;
 	}
 
+	/*getCoefficient*/
 	@Test
 	void testgetCoefficient() {
 		assertEquals(2, m1.get_coefficient());
 		assertEquals(0, m3.get_coefficient());
 	}
-
+	/*getPower*/
 	@Test
 	void testgetPower() {
 		assertEquals(4, m1.get_power());
 		assertEquals(0, m3.get_power()); 
 	}
 
-
+	/*derivative*/
 	@Test
 	void testderivative() {
 		//derivative of simple monom
@@ -79,7 +73,7 @@ class MonomTest {
 		assertEquals(0, m5.derivative().get_coefficient()) ;
 		assertEquals(0, m5.derivative().get_power());;
 	}
-
+	/*add*/
 	@Test
 	void addTestSamepower() {
 		//same power (3,4)
@@ -114,7 +108,7 @@ class MonomTest {
 		assertEquals(4, m1.get_power());
 		assertEquals(2, m1.get_coefficient());
 	}
-
+/* multiply*/
 	@Test
 	void multiplyTestDifferentpower() {
 
@@ -146,6 +140,7 @@ class MonomTest {
 		assertEquals(16, m1.get_coefficient());
 		assertEquals(4, m1.get_power());
 	}
+	/*isZero*/
 	@Test
 	void isZeroTest1() {
 		//check (2,4)
@@ -173,7 +168,7 @@ class MonomTest {
 		boolean isZero = m7.isZero();
 		assertFalse(isZero);
 	}
-
+/*valueAtx*/
 	@Test
 	void valueAtx1() {
 		//m1 (2,4)
@@ -204,11 +199,32 @@ class MonomTest {
 		double result= m7.f(x);
 		assertEquals(8, result);
 	}
+	/*toString*/
 	@Test
 	void toStringTest() {
-	 String Monom= "3*x^2";
-	 assertEquals("3*x^2", Monom);
+		String Monom= "3*x^2";
+		assertEquals("3*x^2", Monom);
 	}
+	/* stringConstructor*/
+
+	@Test
+	void teststringConstructor1() {
+		Monom m = new Monom ("2x^8");
+		assertEquals("2.0x^8", m.toString());
+	}
+	@Test
+	void teststringConstructor2() {
+		try {
+		Monom m = new Monom ("2x^8...");
+		System.out.println(m);
+				fail("worng input");
+			}
+
+			catch(Exception e){
+				System.out.println(e.getMessage());
+			}}
+	
+	
 
 }
 

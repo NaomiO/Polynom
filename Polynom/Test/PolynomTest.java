@@ -20,11 +20,8 @@ class PolynomTest {
 	@Test
 	void DefaultConstructorTest() {
 		Polynom p1= new Polynom ();
-
 		Polynom p2= new Polynom ("0.0");
-
 		boolean check= p1.equals(p2);
-
 		assertEquals(p2.toString(),p1.toString());
 	}
 
@@ -32,7 +29,7 @@ class PolynomTest {
 
 	@Test
 	void CopyConstructorTest() {
-		Polynom p2= new Polynom ("2.0x^3 + 5.0x^8");
+		Polynom p2= new Polynom ("2.0x^3+5.0x^8");
 		Polynom p3= new Polynom (p2);
 		boolean check = p3.equals(p2);
 		assertTrue(check);
@@ -43,7 +40,7 @@ class PolynomTest {
 
 	@Test
 	void valueAtx1() {
-		Polynom p4= new Polynom ("2.0x^3 + 5.0x^8");
+		Polynom p4= new Polynom ("2.0x^3+5.0x^8");
 		int x=0;
 		double result= p4.f(x);
 		assertEquals(0.0, result);
@@ -59,9 +56,21 @@ class PolynomTest {
 	/* stringConstructor*/
 
 	@Test
-	void stringConstructor() {
-		//////////////////////////////////////////////////////////////
+	void teststringConstructor() {
+		Polynom p = new Polynom ("2x^8 + 7x +  3");
+		assertEquals("3.0 + 7.0x + 2.0x^8", p.toString());
 	}
+		@Test
+		void testPolynomString_invaildInput() {
+			try {
+				Polynom p1 =new Polynom ("+ 2x^8 +++ 7x +  32");
+				fail("worng input");
+			}
+
+			catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
 
 	/*addPolynomAble*/
 
@@ -364,6 +373,13 @@ class PolynomTest {
 		Polynom p11=new Polynom("-8x^3+9");
 		double result = p11.area(-1, 4, 0.0001);
 		assertEquals(18.0211329327697, result);
+	}
+	//area new 
+	@Test
+	void testArea3() {
+		Polynom p = new Polynom ("-5-1*x+3*x^2-1.5*x^3+0.2*x^4");
+		double result = p.areanew(-2, 6, 0.01);
+		assertEquals(25.183633821940273, result);
 	}
 
 	/*Iterator*/
