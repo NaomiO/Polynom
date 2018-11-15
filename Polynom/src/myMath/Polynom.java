@@ -225,10 +225,22 @@ public class Polynom implements Polynom_able{
 				if (n3.get_coefficient()==0)
 					itr.remove();
 				polynomnew.add(n3);
-				//n1=n3;
+				
 			}
 		}
 		this.polynom=polynomnew.polynom; 
+		
+		Iterator<Monom> iter = this.iteretor();
+		while (iter.hasNext()) {
+			Monom n1 = new Monom(iter.next());
+			if (n1.get_coefficient()==0) {
+				iter.remove();
+			}
+		}
+		
+
+		
+		
 	}
 
 	/**
@@ -241,25 +253,23 @@ public class Polynom implements Polynom_able{
 	public boolean equals(Polynom_able p1) {
 		Iterator<Monom> itrp1 = p1.iteretor();
 		Iterator<Monom> itr = polynom.iterator();
+		boolean equal = true;
 
-		while (itrp1.hasNext()|| itr.hasNext()) {
-
-			if (itrp1.hasNext()==true && itr.hasNext()==false) {
-				return false;
-			}
-			if (itrp1.hasNext()==false && itr.hasNext()==true) {
-				return false;
-			}
+		while (equal==true && itrp1.hasNext() && itr.hasNext()) {
+			
 			Monom n1 = itrp1.next();
 			Monom n2 = itr.next();
 
 			if (n1.get_coefficient()!= n2.get_coefficient()|| n1.get_power()!=n2.get_power()) {
 				return false;
+		}
+			else {
+				equal= true;
 			}
 		}
-
-		return true;
+		return equal;
 	}
+	
 	/**
 	 * check if the polynom equals zero
 	 * return true or false
@@ -382,7 +392,7 @@ public class Polynom implements Polynom_able{
 
 		Iterator<Monom> it = polynom.iterator();
 		if(!it.hasNext()) {
-			return "0";
+			return "0.0";
 		}
 		ans= ans+it.next();
 		while(it.hasNext())

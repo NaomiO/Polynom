@@ -2,16 +2,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import javax.swing.plaf.synth.SynthPasswordFieldUI;
 import javax.swing.plaf.synth.SynthSeparatorUI;
-
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import myMath.Monom;
 import myMath.Polynom;
 import myMath.Polynom_able;
+
+
 
 class PolynomTest {
 
@@ -21,12 +18,8 @@ class PolynomTest {
 	void DefaultConstructorTest() {
 		Polynom p1= new Polynom ();
 		Polynom p2= new Polynom ("0.0");
-//		System.out.println(p2);
-//		System.out.println(p1);
-//		boolean check= p1.equals(p2);
-	String polynom= p1.toString();
-		assertEquals("0.0",polynom);
-		//assertTrue(check);
+		boolean check= p1.equals(p2);
+		assertEquals(true,check);
 	}
 
 	/* CopyConstructor*/
@@ -79,7 +72,6 @@ class PolynomTest {
 
 	@Test
 	void addPolynomAble2() {
-		//need to delete 0 
 		//add zero polynom able
 		Polynom p8= new Polynom ("2.0x^3 + 5.0x^10");
 		Polynom_able p9= new Polynom();
@@ -87,6 +79,7 @@ class PolynomTest {
 		p8.add(p9);
 		assertEquals(true, p8.equals(expected));
 	}
+	
 	// 	//Polynom to der
 	//	//0.2*x^4-1.5*x^3+3*x^2-x-5
 	//	
@@ -101,7 +94,6 @@ class PolynomTest {
 	/*PolynomAddMonom*/
 	@Test
 	void addMonom1() {
-		//need to delete 0 
 		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10");
 		Monom m1= new Monom(0,0);
 		p11.add(m1);
@@ -146,8 +138,8 @@ class PolynomTest {
 		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10");
 		Polynom_able p7= new Polynom("4x^10 + 1");
 		p11.substract(p7);
-		Polynom abs= new Polynom ("-1.0 + 2.0x^3 + 1.0x^10");
-		 boolean check= p11.equals(abs);
+		Polynom sub= new Polynom ("-1.0 + 2.0x^3 + 1.0x^10");
+		 boolean check= p11.equals(sub);
 		assertEquals(true, check);
 	}
 	
@@ -157,8 +149,8 @@ class PolynomTest {
 		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10");
 		Polynom_able p7= new Polynom("0");
 		p11.substract(p7);
-		Polynom abs= new Polynom ("2.0x^3 + 5.0x^10");
-		 boolean check= p11.equals(abs);
+		Polynom sub= new Polynom ("2.0x^3 + 5.0x^10");
+		 boolean check= p11.equals(sub);
 		assertEquals(true, check);
 	}
 	
@@ -167,8 +159,8 @@ class PolynomTest {
 		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10");
 		Polynom_able p7= new Polynom("-2.0x^3 -5.0x^10");
 		p11.substract(p7);
-		Polynom abs= new Polynom ("4.0x^3 + 10.0x^10");
-		 boolean check= p11.equals(abs);
+		Polynom sub= new Polynom ("4.0x^3 + 10.0x^10");
+		 boolean check= p11.equals(sub);
 		assertEquals(true, check);
 	}
 	@Test
@@ -176,16 +168,66 @@ class PolynomTest {
 		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
 		Polynom_able p7= new Polynom("2.0x^3 + 5.0x^10 + 4.0x^50");
 		p11.substract(p7);
-		Polynom abs= new Polynom ("0");
-		 boolean check= p11.equals(abs);
+		Polynom sub= new Polynom ("0");
+		 boolean check= p11.equals(sub);
+		assertEquals(true, check);
+	}
+	@Test
+	void substractPolynomable5() {
+		Polynom p11= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
+		Polynom_able p7= new Polynom("0");
+		p11.substract(p7);
+		Polynom sub= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
+		 boolean check= p11.equals(sub);
+		assertEquals(true, check);
+	}
+	
+	@Test
+	void substractPolynomable6() {
+		Polynom p11= new Polynom ("0");
+		Polynom_able p7= new Polynom("2.0x^3 + 5.0x^10 + 4.0x^50");
+		p11.substract(p7);
+		Polynom sub= new Polynom ("-2.0x^3 -5.0x^10  -4.0x^50");
+		 boolean check= p11.equals(sub);
 		assertEquals(true, check);
 	}
 
+	/*multiplyPolynomable*/
+	
+	@Test
+	void multiplyPolynomable1() {
+		Polynom p= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
+		Polynom_able p1= new Polynom("0.0");
+		Polynom mult = new Polynom ("0.0");
+		p.multiply(p1);
+		boolean check= p.equals(mult);
+		assertEquals(true, check);
+	}
+	
+	@Test
+	void multiplyPolynomable2() {
+		Polynom p= new Polynom ("2.0x^3 + 5.0x^10 + 4.0x^50");
+		System.out.println("p:"+p);
+		Polynom_able p1= new Polynom("2.0x^3 + 5.0x^10");
+		System.out.println("p1:"+p1);
+		Polynom mult = new Polynom ("4.0x^6 + 20.0x^13 + 25.0x^20 + 8.0x^53 + 20.0x^60");
+		System.out.println("mult:"+mult);
+		p.multiply(p1);
+		System.out.println("pafte:"+p);
+		boolean check= p.equals(mult);
+		assertEquals(true, check);
+	}
+	
+	
 
-
-
-
-
+	
+	//Monom m1= new Monom(2,4);
+	//Monom m6= new Monom(2,4);
+	//Monom m2= new Monom(1,5);
+	//Monom m3= new Monom(0,0);
+	//Monom m4= new Monom(3,4);
+	//Monom m5= new Monom (0,4);
+	//Monom m7= new Monom (8,0);
 
 
 }
