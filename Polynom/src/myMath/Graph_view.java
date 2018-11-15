@@ -18,7 +18,7 @@ import fr.julien.graphique.element.point.Point;
 import fr.julien.graphique.element.quadrillage.Quadrillage;
 
 /**This class represents a tool for graphical drawings of functions 
- * 
+ * we used the french site commentcamarche.com
  * @author Naomi & Shalhevet
  *
  */
